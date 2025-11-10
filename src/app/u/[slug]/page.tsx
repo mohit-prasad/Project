@@ -95,12 +95,20 @@ async function getProfileData(slug: string) {
 
 async function incrementProfileView(profileId: string) {
   try {
-    await db
-      .update(profiles)
-      .set({
-        viewCount: db.select({ count: profiles.viewCount }).from(profiles).where(eq(profiles.id, profileId)).then(res => res[0]?.count || 0) + 1
-      })
-      .where(eq(profiles.id, profileId));
+    // Get current view count
+    const currentProfile = await db
+      .select({ viewCount: profiles.viewCount })
+      .from(profiles)
+      .where(eq(profiles.id, profileId))
+      .limit(1);
+
+    if (currentProfile.length > 0) {
+      const newViewCount = (currentProfile[0].viewCount || 0) + 1;
+      await db
+        .update(profiles)
+        .set({ viewCount: newViewCount })
+        .where(eq(profiles.id, profileId));
+    }
   } catch (error) {
     console.error("Failed to increment profile view:", error);
   }
