@@ -136,26 +136,34 @@ export async function GET(
     const sanitizedUrl = sanitizeUrl(link.url);
 
     // Increment click count in PostgreSQL
-    await db
-      .update(profileLinks)
-      .set({
-        clickCount: db.select({ count: profileLinks.clickCount })
-          .from(profileLinks)
-          .where(eq(profileLinks.id, linkId))
-          .then(res => res[0]?.count || 0) + 1
-      })
-      .where(eq(profileLinks.id, linkId));
+    const currentLink = await db
+      .select({ clickCount: profileLinks.clickCount })
+      .from(profileLinks)
+      .where(eq(profileLinks.id, linkId))
+      .limit(1);
+
+    if (currentLink.length > 0) {
+      const newClickCount = (currentLink[0].clickCount || 0) + 1;
+      await db
+        .update(profileLinks)
+        .set({ clickCount: newClickCount })
+        .where(eq(profileLinks.id, linkId));
+    }
 
     // Also increment profile's total click count
-    await db
-      .update(profiles)
-      .set({
-        clickCount: db.select({ count: profiles.clickCount })
-          .from(profiles)
-          .where(eq(profiles.id, profile.id))
-          .then(res => res[0]?.count || 0) + 1
-      })
-      .where(eq(profiles.id, profile.id));
+    const currentProfile = await db
+      .select({ clickCount: profiles.clickCount })
+      .from(profiles)
+      .where(eq(profiles.id, profile.id))
+      .limit(1);
+
+    if (currentProfile.length > 0) {
+      const newProfileClickCount = (currentProfile[0].clickCount || 0) + 1;
+      await db
+        .update(profiles)
+        .set({ clickCount: newProfileClickCount })
+        .where(eq(profiles.id, profile.id));
+    }
 
     // Track analytics event in MongoDB
     const userAgent = request.headers.get("user-agent") || undefined;
