@@ -13,7 +13,7 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
-    "@auth/drizzle-adapter": "^1.0.0",
+    "@auth/drizzle-adapter": "^1.11.1",
     "@aws-sdk/client-s3": "^3.500.0",
     "@aws-sdk/s3-request-presigner": "^3.500.0",
     "@hookform/resolvers": "^3.3.4",
