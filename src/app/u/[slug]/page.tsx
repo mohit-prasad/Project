@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { profiles, users, profileLinks, socialAccounts } from "@/lib/db-schema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { trackProfileView } from "@/lib/analytics/tracker";
+import { ProfileViewTracker } from "@/components/analytics/ProfileViewTracker";
 import {
   Github,
   Twitter,
@@ -21,13 +21,6 @@ interface ProfilePageProps {
   params: {
     slug: string;
   };
-}
-
-// Track page view by adding a client component that will call the analytics
-function ProfileViewTracker({ profileId }: { profileId: string }) {
-  // This will be a client component that tracks the view
-  // For now, we'll handle it server-side
-  return null;
 }
 
 const socialIcons = {
