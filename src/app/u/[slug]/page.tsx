@@ -23,6 +23,13 @@ interface ProfilePageProps {
   };
 }
 
+// Track page view by adding a client component that will call the analytics
+function ProfileViewTracker({ profileId }: { profileId: string }) {
+  // This will be a client component that tracks the view
+  // For now, we'll handle it server-side
+  return null;
+}
+
 const socialIcons = {
   github: Github,
   twitter: Twitter,
