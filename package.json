@@ -13,9 +13,6 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1",
     "@auth/drizzle-adapter": "^1.0.0",
     "@aws-sdk/client-s3": "^3.500.0",
     "@aws-sdk/s3-request-presigner": "^3.500.0",
@@ -50,11 +47,15 @@
     "jose": "^5.2.0",
     "lucide-react": "^0.350.0",
     "mongodb": "^6.3.0",
+    "next": "16.0.1",
     "next-auth": "5.0.0-beta.11",
     "next-themes": "^0.2.1",
     "nodemailer": "^6.9.9",
     "pg": "^8.11.3",
+    "postgres": "^3.4.7",
+    "react": "19.2.0",
     "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "19.2.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.49.3",
     "react-hot-toast": "^2.4.1",
@@ -71,20 +72,20 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/bcryptjs": "^2.4.6",
+    "@types/eslint": "^8.56.0",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/react-beautiful-dnd": "^13.1.8",
     "@types/nodemailer": "^6.4.14",
     "@types/pg": "^8.10.9",
+    "@types/react": "^19",
+    "@types/react-beautiful-dnd": "^13.1.8",
+    "@types/react-dom": "^19",
     "@types/uuid": "^9.0.8",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "drizzle-kit": "^0.20.14",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
-    "drizzle-kit": "^0.20.14",
-    "@types/eslint": "^8.56.0"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
