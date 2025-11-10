@@ -178,6 +178,9 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           : themeStyles.customBackground
       } : undefined}
     >
+      {/* Analytics tracker - invisible component that tracks profile views */}
+      <ProfileViewTracker profileId={profile.id} />
+
       <div className="container mx-auto px-4 py-12 max-w-2xl">
         {/* Header Section */}
         <Card className={`${themeStyles.cardBg} backdrop-blur-sm border ${themeStyles.borderColor} mb-8`}>
