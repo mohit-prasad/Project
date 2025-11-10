@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { profiles, users, profileLinks, socialAccounts } from "@/lib/db-schema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { trackProfileView } from "@/lib/analytics/tracker";
 import {
   Github,
   Twitter,
