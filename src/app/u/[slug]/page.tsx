@@ -12,7 +12,7 @@ import {
   Linkedin,
   Youtube,
   Twitch,
-  Discord,
+  MessageCircle,
   ExternalLink,
   User
 } from "lucide-react";
