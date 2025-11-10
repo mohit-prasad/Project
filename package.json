@@ -76,7 +76,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/eslint": "^8.56.0",
     "@types/node": "^20",
-    "@types/nodemailer": "^6.4.14",
+    "@types/nodemailer": "^6.4.20",
     "@types/pg": "^8.10.9",
     "@types/react": "^19",
     "@types/react-beautiful-dnd": "^13.1.8",
