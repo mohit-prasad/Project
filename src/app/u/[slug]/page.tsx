@@ -30,7 +30,7 @@ const socialIcons = {
   linkedin: Linkedin,
   youtube: Youtube,
   twitch: Twitch,
-  discord: Discord,
+  discord: MessageCircle,
 };
 
 const linkIcons = {
